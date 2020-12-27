@@ -10,6 +10,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     concurrent-ruby (1.1.7)
+    diff-lcs (1.4.4)
     fritzbox-smarthome (0.1.2)
       activemodel (>= 5.1, < 6.2)
       activesupport (>= 5.1, < 6.2)
@@ -37,13 +38,26 @@ GEM
     rack-app (7.7.0)
       rack
     rollbar (3.1.1)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
-  x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   activesupport
@@ -52,6 +66,7 @@ DEPENDENCIES
   rack
   rack-app
   rollbar
+  rspec
 
 BUNDLED WITH
    2.2.0

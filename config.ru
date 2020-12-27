@@ -1,6 +1,4 @@
-require 'bundler'
-
-Bundler.require(:default)
+require_relative 'config/environment'
 
 Fritzbox::Smarthome.configure do |config|
   config.endpoint   = ENV['FRITZBOX_ENDPOINT'] || 'https://fritz.box'

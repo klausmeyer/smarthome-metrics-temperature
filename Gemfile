@@ -6,3 +6,7 @@ gem 'rack-app'
 gem 'fritzbox-smarthome'
 gem 'puma'
 gem 'rollbar'
+
+group :development, :test do
+  gem 'rspec'
+end
