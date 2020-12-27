@@ -18,6 +18,7 @@ RUN addgroup -S app && adduser -S app -G app -h /app \
 
 USER app
 RUN gem install bundler -v $(tail -n1 Gemfile.lock | xargs) \
+ && bundle config set without 'development test' \
  && bundle install
 
 CMD puma -p $PORT
