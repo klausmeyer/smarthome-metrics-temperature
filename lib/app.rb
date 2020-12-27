@@ -8,10 +8,13 @@ class App < Rack::App
     actors = Fritzbox::Smarthome::Actor.all
 
     actors.map do |actor|
+      temp_is  = actor.hkr_temp_is
+      temp_set = actor.hkr_temp_set == 126.5 ? 0.0 : actor.hkr_temp_set
+
       name = actor.name.tr('"', '')
       [
-        %Q(temperature_#{actor.type}_is{actor="#{name}"} #{actor.hkr_temp_is}),
-        %Q(temperature_#{actor.type}_set{actor="#{name}"} #{actor.hkr_temp_set})
+        %Q(temperature_#{actor.type}_is{actor="#{name}"} #{temp_is}),
+        %Q(temperature_#{actor.type}_set{actor="#{name}"} #{temp_set})
       ]
     end.flatten.join("\n")
   rescue => e
