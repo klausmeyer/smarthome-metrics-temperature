@@ -5,7 +5,7 @@ class App < Rack::App
   end
 
   get '/metrics' do
-    actors = Fritzbox::Smarthome::Actor.all
+    actors = Fritzbox::Smarthome::Heater.all
 
     actors.map do |actor|
       temp_is  = actor.hkr_temp_is
