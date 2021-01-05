@@ -4,12 +4,12 @@ RSpec.describe 'Metrics Endpoint' do
   rack_app App
 
   describe 'GET /metrics' do
-    let(:actor_a) { instance_double('Fritzbox::Smarthome::Actor', type: :device, name: 'Actor A', hkr_temp_is: 22.0, hkr_temp_set: 23.0) }
-    let(:actor_b) { instance_double('Fritzbox::Smarthome::Actor', type: :device, name: 'Actor B', hkr_temp_is: 20.0, hkr_temp_set: 18.0) }
-    let(:actor_c) { instance_double('Fritzbox::Smarthome::Actor', type: :device, name: 'Actor C', hkr_temp_is: 18.0, hkr_temp_set: 126.5) }
+    let(:actor_a) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor A', hkr_temp_is: 22.0, hkr_temp_set: 23.0) }
+    let(:actor_b) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor B', hkr_temp_is: 20.0, hkr_temp_set: 18.0) }
+    let(:actor_c) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor C', hkr_temp_is: 18.0, hkr_temp_set: 126.5) }
 
     before do
-      allow(Fritzbox::Smarthome::Actor).to receive(:all).and_return([
+      allow(Fritzbox::Smarthome::Heater).to receive(:all).and_return([
         actor_a,
         actor_b,
         actor_c,
