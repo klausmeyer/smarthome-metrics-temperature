@@ -35,7 +35,7 @@ GEM
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.4)
+    rack (3.0.0)
     rack-app (7.7.0)
       rack
     rollbar (3.3.1)
