@@ -1,10 +1,19 @@
-class App < Rack::App
-  headers 'Content-Type' => 'text/plain; charset=utf8'
-  get '/' do
-    'Hello'
+module App
+  extend self
+
+  def call(env)
+    [200, headers, [body]]
   end
 
-  get '/metrics' do
+  private
+
+  def headers
+    {
+      'Content-Type' => 'text/plain; charset=utf8'
+    }
+  end
+
+  def body
     actors = Fritzbox::Smarthome::Heater.all
 
     actors.map do |actor|

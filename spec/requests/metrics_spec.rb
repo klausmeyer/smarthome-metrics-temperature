@@ -1,7 +1,9 @@
-RSpec.describe 'Metrics Endpoint' do
-  include Rack::App::Test
+require 'rack/test'
 
-  rack_app App
+RSpec.describe 'Metrics Endpoint' do
+  include Rack::Test::Methods
+
+  let(:app) { App }
 
   describe 'GET /metrics' do
     let(:actor_a) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor A', hkr_temp_is: 22.0, hkr_temp_set: 23.0) }
