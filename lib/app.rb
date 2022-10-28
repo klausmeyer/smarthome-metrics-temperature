@@ -26,8 +26,5 @@ module App
         %Q(temperature_#{actor.type}_set{actor="#{name}"} #{temp_set})
       ]
     end.flatten.join("\n")
-  rescue => e
-    Rollbar.error(e)
-    raise
   end
 end
