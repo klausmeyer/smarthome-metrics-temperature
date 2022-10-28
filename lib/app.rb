@@ -2,7 +2,19 @@ module App
   extend self
 
   def call(env)
-    [200, headers, [body]]
+    case env['PATH_INFO']
+    when '/'
+      body = root
+      code = 200
+    when '/metrics'
+      body = metrics
+      code = 200
+    else
+      body = not_found
+      code = 404
+    end
+
+    [code, headers, [body]]
   end
 
   private
@@ -13,7 +25,11 @@ module App
     }
   end
 
-  def body
+  def root
+    'hello world'
+  end
+
+  def metrics
     actors = Fritzbox::Smarthome::Heater.all
 
     actors.map do |actor|
@@ -26,5 +42,9 @@ module App
         %Q(temperature_#{actor.type}_set{actor="#{name}"} #{temp_set})
       ]
     end.flatten.join("\n")
+  end
+
+  def not_found
+    'not found'
   end
 end

@@ -5,6 +5,15 @@ RSpec.describe 'Metrics Endpoint' do
 
   let(:app) { App }
 
+  describe 'GET /' do
+    subject { get '/' }
+
+    it 'returns with hello world' do
+      expect(subject.status).to eq 200
+      expect(subject.body).to eq 'hello world'
+    end
+  end
+
   describe 'GET /metrics' do
     let(:actor_a) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor A', hkr_temp_is: 22.0, hkr_temp_set: 23.0) }
     let(:actor_b) { instance_double('Fritzbox::Smarthome::Heater', type: :device, name: 'Actor B', hkr_temp_is: 20.0, hkr_temp_set: 18.0) }
@@ -33,6 +42,15 @@ RSpec.describe 'Metrics Endpoint' do
         temperature_device_is{actor="Actor C"} 18.0
         temperature_device_set{actor="Actor C"} 0.0
       TXT
+    end
+  end
+
+  describe 'GET /unknown' do
+    subject { get '/unknown' }
+
+    it 'returns with hello world' do
+      expect(subject.status).to eq 404
+      expect(subject.body).to eq 'not found'
     end
   end
 end
