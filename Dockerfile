@@ -7,7 +7,7 @@ ENV RACK_ENV production
 EXPOSE $PORT
 
 RUN apk update \
- && apk add build-base zlib-dev tzdata nodejs openssl-dev \
+ && apk add build-base zlib-dev tzdata nodejs openssl-dev libc6-compat \
  && rm -rf /var/cache/apk/*
 
 WORKDIR /app
