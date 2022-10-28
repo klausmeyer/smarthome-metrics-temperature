@@ -3,6 +3,7 @@ FROM ruby:3.1.2-alpine
 LABEL maintainer="Klaus Meyer <spam@klaus-meyer.net>"
 
 ENV PORT 8080
+ENV RACK_ENV production
 EXPOSE $PORT
 
 RUN apk update \
