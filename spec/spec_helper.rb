@@ -99,6 +99,6 @@ RSpec.configure do |config|
 =end
 end
 
-require 'byebug'
+require 'debug'
 
 require_relative '../config/environment'
