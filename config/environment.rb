@@ -1,5 +1,7 @@
 require 'bundler'
 
+require 'stringio'
+
 Bundler.require(:default)
 
 # https://stackoverflow.com/questions/76183622/since-a-ruby-container-upgrade-we-expirience-a-lot-of-opensslsslsslerror
