@@ -3,10 +3,10 @@ FROM ruby:3.3.6-alpine
 LABEL maintainer="Klaus Meyer <spam@klaus-meyer.net>"
 
 ARG SOURCE_COMMIT
-ENV SOURCE_COMMIT $SOURCE_COMMIT
+ENV SOURCE_COMMIT=$SOURCE_COMMIT
 
-ENV PORT 8080
-ENV RACK_ENV production
+ENV PORT=8080
+ENV RACK_ENV=production
 
 EXPOSE $PORT
 
@@ -30,8 +30,8 @@ RUN gem install bundler -v $(grep -A1 "BUNDLED WITH" Gemfile.lock | tail -n1 | t
 ADD . /var/www/rack/
 
 RUN addgroup -S rack && adduser -S rack -G rack -h /var/www/rack/ \
- && chown -R rack.rack /var/www/rack/ \
- && chown -R rack.rack /usr/local/bundle
+ && chown -R rack:rack /var/www/rack/ \
+ && chown -R rack:rack /usr/local/bundle
 
 USER rack
 
