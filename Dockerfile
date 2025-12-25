@@ -1,4 +1,4 @@
-FROM ruby:3.4.7-alpine
+FROM ruby:3.4.8-alpine
 
 LABEL maintainer="Klaus Meyer <spam@klaus-meyer.net>"
 
