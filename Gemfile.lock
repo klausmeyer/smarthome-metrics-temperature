@@ -27,7 +27,7 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.6.2)
     drb (2.2.3)
-    erb (6.0.1)
+    erb (6.0.4)
     fritzbox-smarthome (0.8.2)
       activemodel (>= 7.0, < 8.2)
       activesupport (>= 7.0, < 8.2)
